@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import MapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var navigationController = UINavigationController()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let lvc = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        self.navigationController = UINavigationController(rootViewController: lvc)
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.makeKeyAndVisible()
+        self.window?.rootViewController = self.navigationController
+        self.navigationController.navigationBarHidden = true
         return true
     }
 
