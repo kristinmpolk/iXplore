@@ -73,6 +73,7 @@
 				5CD0D87D1D087F53005CEE77 /* Assets.xcassets */,
 				5CD0D87F1D087F53005CEE77 /* LaunchScreen.storyboard */,
 				5CD0D8821D087F53005CEE77 /* Info.plist */,
+				5CD0D88B1D087FF9005CEE77 /* Spot.swift */,
 			);
 			path = iXplore;
 			sourceTree = "<group>";
@@ -98,7 +99,6 @@
 		5CD0D8961D098264005CEE77 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5CD0D88B1D087FF9005CEE77 /* Spot.swift */,
 				5CD0D8C11D09C621005CEE77 /* Place.swift */,
 			);
 			name = Models;

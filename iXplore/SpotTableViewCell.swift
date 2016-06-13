@@ -12,6 +12,7 @@ class SpotTableViewCell: UITableViewCell {
 
     @IBOutlet weak var logo: UIImageView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     
     override func awakeFromNib() {

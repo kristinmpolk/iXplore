@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class LandingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class LandingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
@@ -48,21 +48,23 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SpotTableViewCell", forIndexPath: indexPath) as! SpotTableViewCell
         let spot = placeList[indexPath.row]
+        let cell = tableView.dequeueReusableCellWithIdentifier("SpotTableViewCell", forIndexPath: indexPath) as! SpotTableViewCell
         cell.label?.text = spot.title!
-        cell.logo.imageFromUrl(placeList[indexPath.row].imageURL!)
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        let dateString = dateFormatter.stringFromDate(spot.date!)
+        cell.dateLabel.text = String(dateString)
+        if spot.imageURL != nil {
+            cell.logo.imageFromUrl(placeList[indexPath.row].imageURL!)
+        }
         return cell
         
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        
-        if placeList[indexPath.row].ratable {
-            return 88
-        } else {
-            return 44
-        }
+        return 88
     }
     
     
@@ -72,6 +74,18 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
         let mapCenterAfterMove = CLLocationCoordinate2D(latitude: self.placeList[indexPath.row].coordinate.latitude, longitude: self.placeList[indexPath.row].coordinate.longitude)
         mapView.selectAnnotation(spot as! MKAnnotation, animated: true)
         
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            placeList.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+            // handle delete (by removing the data from your array and updating the tableview)
+        }
     }
 
 

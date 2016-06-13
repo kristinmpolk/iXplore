@@ -22,23 +22,36 @@
                             <constraint firstAttribute="width" constant="80" id="pmc-9y-zlq"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qoe-dY-8DP">
-                        <rect key="frame" x="139" y="34" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qoe-dY-8DP" userLabel="placeName">
+                        <rect key="frame" x="88" y="8" width="205" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pq2-ud-JKU" userLabel="date">
+                        <rect key="frame" x="88" y="43" width="224" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Qoe-dY-8DP" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="13a-7e-bAn"/>
-                    <constraint firstItem="Qoe-dY-8DP" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="IwF-4O-I5m"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="pq2-ud-JKU" secondAttribute="bottom" constant="17" id="KB1-nm-83q"/>
+                    <constraint firstItem="pq2-ud-JKU" firstAttribute="leading" secondItem="vYH-hB-Fxl" secondAttribute="trailing" constant="8" id="MHO-et-mXC"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="pq2-ud-JKU" secondAttribute="trailing" id="OpJ-Pb-sY2"/>
                     <constraint firstItem="vYH-hB-Fxl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="SpT-7k-YmE"/>
                     <constraint firstAttribute="bottomMargin" secondItem="vYH-hB-Fxl" secondAttribute="bottom" constant="1" id="Wgo-aq-CEW"/>
                     <constraint firstItem="vYH-hB-Fxl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="XC9-U3-c8N"/>
+                    <constraint firstItem="pq2-ud-JKU" firstAttribute="top" secondItem="Qoe-dY-8DP" secondAttribute="bottom" constant="14" id="aWw-yY-jIQ"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Qoe-dY-8DP" secondAttribute="bottom" constant="52" id="dBO-Hf-puc"/>
+                    <constraint firstItem="Qoe-dY-8DP" firstAttribute="leading" secondItem="vYH-hB-Fxl" secondAttribute="trailing" constant="8" id="fI9-NC-f7s"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Qoe-dY-8DP" secondAttribute="trailing" constant="19" id="igd-0X-myf"/>
+                    <constraint firstAttribute="topMargin" secondItem="Qoe-dY-8DP" secondAttribute="top" id="nQZ-Zs-Ec4"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vYH-hB-Fxl" secondAttribute="trailing" constant="232" id="pdU-Bp-bH1"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="dateLabel" destination="pq2-ud-JKU" id="1P0-Cv-PYQ"/>
                 <outlet property="label" destination="Qoe-dY-8DP" id="csD-6Y-E17"/>
                 <outlet property="logo" destination="vYH-hB-Fxl" id="K4j-FJ-R9m"/>
             </connections>
