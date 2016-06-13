@@ -10,6 +10,10 @@ import UIKit
 
 class SpotTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var logo: UIImageView!
+    @IBOutlet weak var label: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

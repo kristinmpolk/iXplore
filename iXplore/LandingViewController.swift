@@ -14,7 +14,7 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
     
-    var placeList = []
+    var placeList:[Place] = []
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -27,13 +27,14 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         setupMapView()
         setupTableView()
+        tableView.registerNib(UINib(nibName : "SpotTableViewCell", bundle : nil), forCellReuseIdentifier: "SpotTableViewCell")
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     func setupMapView() {
         mapView.mapType = .Hybrid
         mapView.showsBuildings = true
-        mapView.addAnnotations(self.placeList as! [MKAnnotation])
+        mapView.addAnnotations(self.placeList) //as! [MKAnnotation]
     }
     
     func setupTableView() {
@@ -47,11 +48,21 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCellWithIdentifier("SpotTableViewCell", forIndexPath: indexPath) as! SpotTableViewCell
         let spot = placeList[indexPath.row]
-        cell.textLabel?.text = spot.title
+        cell.label?.text = spot.title!
+        cell.logo.imageFromUrl(placeList[indexPath.row].imageURL!)
         return cell
         
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if placeList[indexPath.row].ratable {
+            return 88
+        } else {
+            return 44
+        }
     }
     
     
