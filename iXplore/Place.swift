@@ -17,6 +17,7 @@ class Place:NSObject, MKAnnotation  {
     var ratable: Bool = false
     var description_: String?
     var date: NSDate?
+    var favorite: Bool = false
     
     class func placeList() -> [Place] {
         
@@ -24,6 +25,7 @@ class Place:NSObject, MKAnnotation  {
         place1.title = "Workshop 17"
         place1.imageURL = "https://avatars1.githubusercontent.com/u/7220596?v=3&s=200"
         place1.ratable = true
+        place1.favorite = true
         place1.coordinate = CLLocationCoordinate2D(latitude: -33.906764,longitude: 18.4164983)
         place1.date = NSDate()
         

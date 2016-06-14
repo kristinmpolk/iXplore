@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class LandingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate {
+class LandingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
@@ -23,18 +23,19 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     override func viewDidLoad() {
+        tableView.registerNib(UINib(nibName : "SpotTableViewCell", bundle : nil), forCellReuseIdentifier: "SpotTableViewCell")
         self.placeList = Place.placeList()
         super.viewDidLoad()
         setupMapView()
         setupTableView()
-        tableView.registerNib(UINib(nibName : "SpotTableViewCell", bundle : nil), forCellReuseIdentifier: "SpotTableViewCell")
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     func setupMapView() {
         mapView.mapType = .Hybrid
         mapView.showsBuildings = true
-        mapView.addAnnotations(self.placeList) //as! [MKAnnotation]
+        mapView.addAnnotations(self.placeList)
+        self.mapView.delegate = self
     }
     
     func setupTableView() {
@@ -67,11 +68,47 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
         return 88
     }
     
-    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        let pin = annotation as! Place
+        if !pin.favorite {
+            return nil
+        }
+        
+        if annotation is MKUserLocation {
+            //return nil so map view draws "blue dot" for standard user location
+            return nil
+        }
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.animatesDrop = true
+            pinView!.pinTintColor = UIColor.yellowColor()
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
+        
+//        var anView = MKPinAnnotationView()
+//        var place = annotation as! Place
+//        if (place.favorite != nil) {
+//            anView.pinTintColor = UIColor.yellowColor()
+//        } else {
+//            anView.pinTintColor = UIColor.redColor()
+//        }
+//        return anView
+        
+    }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let spot = placeList[indexPath.row]
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let mapCenterAfterMove = CLLocationCoordinate2D(latitude: self.placeList[indexPath.row].coordinate.latitude, longitude: self.placeList[indexPath.row].coordinate.longitude)
+        //let mapCenterAfterMove = CLLocationCoordinate2D(latitude: self.placeList[indexPath.row].coordinate.latitude, longitude: self.placeList[indexPath.row].coordinate.longitude)
         mapView.selectAnnotation(spot as! MKAnnotation, animated: true)
         
     }
@@ -87,6 +124,8 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
             // handle delete (by removing the data from your array and updating the tableview)
         }
     }
+    
+
 
 
 }

@@ -17,6 +17,7 @@
 		5CD0D8931D0980BB005CEE77 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D8911D0980BB005CEE77 /* LandingViewController.swift */; };
 		5CD0D8941D0980BB005CEE77 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD0D8921D0980BB005CEE77 /* LandingViewController.xib */; };
 		5CD0D8C21D09C621005CEE77 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D8C11D09C621005CEE77 /* Place.swift */; };
+		5CD0D9101D0F0D77005CEE77 /* star_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD0D90F1D0F0D77005CEE77 /* star_black.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		5CD0D8911D0980BB005CEE77 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		5CD0D8921D0980BB005CEE77 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
 		5CD0D8C11D09C621005CEE77 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		5CD0D90F1D0F0D77005CEE77 /* star_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_black.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 		5CD0D88A1D087FE0005CEE77 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5CD0D90F1D0F0D77005CEE77 /* star_black.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			files = (
 				5CD0D8811D087F53005CEE77 /* LaunchScreen.storyboard in Resources */,
 				5CD0D87E1D087F53005CEE77 /* Assets.xcassets in Resources */,
+				5CD0D9101D0F0D77005CEE77 /* star_black.png in Resources */,
 				5CD0D8941D0980BB005CEE77 /* LandingViewController.xib in Resources */,
 				5CD0D8901D088366005CEE77 /* SpotTableViewCell.xib in Resources */,
 			);
