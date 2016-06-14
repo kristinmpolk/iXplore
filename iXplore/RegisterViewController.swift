@@ -1,5 +1,5 @@
 //
-//  LandingViewController.swift
+//  RegisterViewController.swift
 //  iXplore
 //
 //  Created by Ingrid Polk on 6/14/16.
@@ -8,8 +8,15 @@
 
 import UIKit
 
-class LandingViewController: UIViewController {
+class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    var email:String?
+    var password:String?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +28,13 @@ class LandingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func loginButtonTapped(sender: UIButton) {
-        let lvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        self.navigationController?.pushViewController(lvc, animated: true)
-    }
 
     @IBAction func registerButtonTapped(sender: UIButton) {
-        let rvc = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
-        self.navigationController?.pushViewController(rvc, animated: true)
+        email = emailTextField.text!
+        password = passwordTextField.text!
+        UserController.sharedInstance.registerUser(email!, newPassword: password!)
         
     }
+
 
 }

@@ -1,5 +1,5 @@
 //
-//  LandingViewController.swift
+//  LoginViewController.swift
 //  iXplore
 //
 //  Created by Ingrid Polk on 6/14/16.
@@ -8,8 +8,14 @@
 
 import UIKit
 
-class LandingViewController: UIViewController {
+class LoginViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    
+    var email:String?
+    var password:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,14 +28,10 @@ class LandingViewController: UIViewController {
     }
     
     @IBAction func loginButtonTapped(sender: UIButton) {
-        let lvc = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        self.navigationController?.pushViewController(lvc, animated: true)
+        email = self.emailTextField.text
+        password = self.passwordTextField.text
+        UserController.sharedInstance.loginUser(email!, suppliedPassword: password!)
     }
 
-    @IBAction func registerButtonTapped(sender: UIButton) {
-        let rvc = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
-        self.navigationController?.pushViewController(rvc, animated: true)
-        
-    }
 
 }

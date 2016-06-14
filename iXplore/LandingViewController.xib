@@ -3,13 +3,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LandingViewController" customModule="iXplore" customModuleProvider="target">
             <connections>
-                <outlet property="mapView" destination="Ui1-kp-5t7" id="I5Z-pj-sW8"/>
-                <outlet property="tableView" destination="ywh-3C-37N" id="7pI-IE-hK2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,24 +15,27 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ui1-kp-5t7">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
-                </mapView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ywh-3C-37N">
-                    <rect key="frame" x="0.0" y="300" width="600" height="300"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwS-G8-v4c">
+                    <rect key="frame" x="281" y="201" width="38" height="30"/>
+                    <state key="normal" title="Login"/>
+                    <connections>
+                        <action selector="loginButtonTapped:" destination="-1" eventType="touchUpInside" id="NCF-dH-ZZ2"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQR-Kg-iNo">
+                    <rect key="frame" x="272" y="295" width="57" height="30"/>
+                    <state key="normal" title="Register"/>
+                    <connections>
+                        <action selector="registerButtonTapped:" destination="-1" eventType="touchUpInside" id="gu7-Xy-Fdk"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Ui1-kp-5t7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7Rs-XZ-pRk"/>
-                <constraint firstAttribute="trailing" secondItem="ywh-3C-37N" secondAttribute="trailing" id="BiJ-f5-CwM"/>
-                <constraint firstItem="Ui1-kp-5t7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Jlu-4K-uSN"/>
-                <constraint firstAttribute="trailing" secondItem="Ui1-kp-5t7" secondAttribute="trailing" id="Kob-s2-BgS"/>
-                <constraint firstItem="ywh-3C-37N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fHs-uU-sGP"/>
-                <constraint firstItem="Ui1-kp-5t7" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fXS-Lc-csH"/>
-                <constraint firstItem="ywh-3C-37N" firstAttribute="top" secondItem="Ui1-kp-5t7" secondAttribute="bottom" id="njR-5n-kjP"/>
-                <constraint firstAttribute="bottom" secondItem="ywh-3C-37N" secondAttribute="bottom" id="pw3-47-FhQ"/>
+                <constraint firstItem="bwS-G8-v4c" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="3B2-22-Q5f"/>
+                <constraint firstItem="bwS-G8-v4c" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Cz0-KJ-Ed0"/>
+                <constraint firstItem="fQR-Kg-iNo" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="XKL-hN-cpZ"/>
+                <constraint firstItem="fQR-Kg-iNo" firstAttribute="top" secondItem="bwS-G8-v4c" secondAttribute="bottom" constant="64" id="mCg-cJ-yZ0"/>
             </constraints>
         </view>
     </objects>

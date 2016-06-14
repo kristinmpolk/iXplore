@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDelegate {
 
     var window: UIWindow?
     var navigationController = UINavigationController()
@@ -19,13 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let lvc = LandingViewController(nibName: "LandingViewController", bundle: nil)
+        let lvc = LoggedInViewController(nibName: "LoggedInViewController", bundle: nil)
         self.navigationController = UINavigationController(rootViewController: lvc)
+        self.navigationController.navigationBarHidden = false
+ 
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = self.navigationController
-        self.navigationController.navigationBarHidden = true
         return true
     }
 

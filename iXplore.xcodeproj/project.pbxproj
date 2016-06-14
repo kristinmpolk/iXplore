@@ -12,12 +12,23 @@
 		5CD0D8811D087F53005CEE77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CD0D87F1D087F53005CEE77 /* LaunchScreen.storyboard */; };
 		5CD0D8891D087FD7005CEE77 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CD0D8881D087FD7005CEE77 /* MapKit.framework */; };
 		5CD0D88C1D087FF9005CEE77 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D88B1D087FF9005CEE77 /* Spot.swift */; };
-		5CD0D88F1D088366005CEE77 /* SpotTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D88D1D088366005CEE77 /* SpotTableViewCell.swift */; };
-		5CD0D8901D088366005CEE77 /* SpotTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD0D88E1D088366005CEE77 /* SpotTableViewCell.xib */; };
-		5CD0D8931D0980BB005CEE77 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D8911D0980BB005CEE77 /* LandingViewController.swift */; };
-		5CD0D8941D0980BB005CEE77 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD0D8921D0980BB005CEE77 /* LandingViewController.xib */; };
+		5CD0D88F1D088366005CEE77 /* PlaceTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D88D1D088366005CEE77 /* PlaceTableView.swift */; };
+		5CD0D8931D0980BB005CEE77 /* LoggedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D8911D0980BB005CEE77 /* LoggedInViewController.swift */; };
+		5CD0D8941D0980BB005CEE77 /* LoggedInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD0D8921D0980BB005CEE77 /* LoggedInViewController.xib */; };
 		5CD0D8C21D09C621005CEE77 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D8C11D09C621005CEE77 /* Place.swift */; };
 		5CD0D9101D0F0D77005CEE77 /* star_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CD0D90F1D0F0D77005CEE77 /* star_black.png */; };
+		5CD0D9161D1011DB005CEE77 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D9141D1011DB005CEE77 /* LoginViewController.swift */; };
+		5CD0D9171D1011DB005CEE77 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD0D9151D1011DB005CEE77 /* LoginViewController.xib */; };
+		5CD0D91A1D10122A005CEE77 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D9181D10122A005CEE77 /* RegisterViewController.swift */; };
+		5CD0D91B1D10122A005CEE77 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD0D9191D10122A005CEE77 /* RegisterViewController.xib */; };
+		5CD0D91E1D101298005CEE77 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D91C1D101298005CEE77 /* LandingViewController.swift */; };
+		5CD0D91F1D101298005CEE77 /* LandingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD0D91D1D101298005CEE77 /* LandingViewController.xib */; };
+		5CD0D9211D10170C005CEE77 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D9201D10170C005CEE77 /* UserController.swift */; };
+		5CD0D9231D101757005CEE77 /* EmailValidatedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D9221D101757005CEE77 /* EmailValidatedTextField.swift */; };
+		5CD0D9461D103ED0005CEE77 /* NewPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D9441D103ED0005CEE77 /* NewPlaceViewController.swift */; };
+		5CD0D9471D103ED0005CEE77 /* NewPlaceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CD0D9451D103ED0005CEE77 /* NewPlaceViewController.xib */; };
+		5CD0D9491D105BFC005CEE77 /* PlaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D9481D105BFC005CEE77 /* PlaceController.swift */; };
+		5CD0D94B1D106764005CEE77 /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD0D94A1D106764005CEE77 /* PersistanceManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +39,23 @@
 		5CD0D8821D087F53005CEE77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CD0D8881D087FD7005CEE77 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		5CD0D88B1D087FF9005CEE77 /* Spot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
-		5CD0D88D1D088366005CEE77 /* SpotTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpotTableViewCell.swift; sourceTree = "<group>"; };
-		5CD0D88E1D088366005CEE77 /* SpotTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpotTableViewCell.xib; sourceTree = "<group>"; };
-		5CD0D8911D0980BB005CEE77 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
-		5CD0D8921D0980BB005CEE77 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
+		5CD0D88D1D088366005CEE77 /* PlaceTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceTableView.swift; sourceTree = "<group>"; };
+		5CD0D8911D0980BB005CEE77 /* LoggedInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggedInViewController.swift; sourceTree = "<group>"; };
+		5CD0D8921D0980BB005CEE77 /* LoggedInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoggedInViewController.xib; sourceTree = "<group>"; };
 		5CD0D8C11D09C621005CEE77 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		5CD0D90F1D0F0D77005CEE77 /* star_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_black.png; sourceTree = "<group>"; };
+		5CD0D9141D1011DB005CEE77 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5CD0D9151D1011DB005CEE77 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		5CD0D9181D10122A005CEE77 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5CD0D9191D10122A005CEE77 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		5CD0D91C1D101298005CEE77 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		5CD0D91D1D101298005CEE77 /* LandingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandingViewController.xib; sourceTree = "<group>"; };
+		5CD0D9201D10170C005CEE77 /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		5CD0D9221D101757005CEE77 /* EmailValidatedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmailValidatedTextField.swift; sourceTree = "<group>"; };
+		5CD0D9441D103ED0005CEE77 /* NewPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPlaceViewController.swift; sourceTree = "<group>"; };
+		5CD0D9451D103ED0005CEE77 /* NewPlaceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewPlaceViewController.xib; sourceTree = "<group>"; };
+		5CD0D9481D105BFC005CEE77 /* PlaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceController.swift; sourceTree = "<group>"; };
+		5CD0D94A1D106764005CEE77 /* PersistanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +73,7 @@
 		5CD0D86A1D087F53005CEE77 = {
 			isa = PBXGroup;
 			children = (
+				5CD0D9221D101757005CEE77 /* EmailValidatedTextField.swift */,
 				5CD0D8881D087FD7005CEE77 /* MapKit.framework */,
 				5CD0D8751D087F53005CEE77 /* iXplore */,
 				5CD0D8741D087F53005CEE77 /* Products */,
@@ -68,6 +91,7 @@
 		5CD0D8751D087F53005CEE77 /* iXplore */ = {
 			isa = PBXGroup;
 			children = (
+				5CD0D9131D1011C2005CEE77 /* Views */,
 				5CD0D88A1D087FE0005CEE77 /* images */,
 				5CD0D8961D098264005CEE77 /* Models */,
 				5CD0D8951D09822D005CEE77 /* LandingView */,
@@ -91,10 +115,11 @@
 		5CD0D8951D09822D005CEE77 /* LandingView */ = {
 			isa = PBXGroup;
 			children = (
-				5CD0D8911D0980BB005CEE77 /* LandingViewController.swift */,
-				5CD0D8921D0980BB005CEE77 /* LandingViewController.xib */,
-				5CD0D88D1D088366005CEE77 /* SpotTableViewCell.swift */,
-				5CD0D88E1D088366005CEE77 /* SpotTableViewCell.xib */,
+				5CD0D8911D0980BB005CEE77 /* LoggedInViewController.swift */,
+				5CD0D8921D0980BB005CEE77 /* LoggedInViewController.xib */,
+				5CD0D9441D103ED0005CEE77 /* NewPlaceViewController.swift */,
+				5CD0D9451D103ED0005CEE77 /* NewPlaceViewController.xib */,
+				5CD0D88D1D088366005CEE77 /* PlaceTableView.swift */,
 			);
 			name = LandingView;
 			sourceTree = "<group>";
@@ -103,8 +128,24 @@
 			isa = PBXGroup;
 			children = (
 				5CD0D8C11D09C621005CEE77 /* Place.swift */,
+				5CD0D9201D10170C005CEE77 /* UserController.swift */,
+				5CD0D9481D105BFC005CEE77 /* PlaceController.swift */,
+				5CD0D94A1D106764005CEE77 /* PersistanceManager.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		5CD0D9131D1011C2005CEE77 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5CD0D9141D1011DB005CEE77 /* LoginViewController.swift */,
+				5CD0D9151D1011DB005CEE77 /* LoginViewController.xib */,
+				5CD0D9181D10122A005CEE77 /* RegisterViewController.swift */,
+				5CD0D9191D10122A005CEE77 /* RegisterViewController.xib */,
+				5CD0D91C1D101298005CEE77 /* LandingViewController.swift */,
+				5CD0D91D1D101298005CEE77 /* LandingViewController.xib */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,11 +211,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CD0D9171D1011DB005CEE77 /* LoginViewController.xib in Resources */,
+				5CD0D9471D103ED0005CEE77 /* NewPlaceViewController.xib in Resources */,
+				5CD0D91F1D101298005CEE77 /* LandingViewController.xib in Resources */,
 				5CD0D8811D087F53005CEE77 /* LaunchScreen.storyboard in Resources */,
 				5CD0D87E1D087F53005CEE77 /* Assets.xcassets in Resources */,
 				5CD0D9101D0F0D77005CEE77 /* star_black.png in Resources */,
-				5CD0D8941D0980BB005CEE77 /* LandingViewController.xib in Resources */,
-				5CD0D8901D088366005CEE77 /* SpotTableViewCell.xib in Resources */,
+				5CD0D8941D0980BB005CEE77 /* LoggedInViewController.xib in Resources */,
+				5CD0D91B1D10122A005CEE77 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,11 +229,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CD0D9211D10170C005CEE77 /* UserController.swift in Sources */,
+				5CD0D9461D103ED0005CEE77 /* NewPlaceViewController.swift in Sources */,
+				5CD0D9161D1011DB005CEE77 /* LoginViewController.swift in Sources */,
 				5CD0D88C1D087FF9005CEE77 /* Spot.swift in Sources */,
+				5CD0D91E1D101298005CEE77 /* LandingViewController.swift in Sources */,
+				5CD0D94B1D106764005CEE77 /* PersistanceManager.swift in Sources */,
+				5CD0D9491D105BFC005CEE77 /* PlaceController.swift in Sources */,
+				5CD0D91A1D10122A005CEE77 /* RegisterViewController.swift in Sources */,
 				5CD0D8771D087F53005CEE77 /* AppDelegate.swift in Sources */,
-				5CD0D8931D0980BB005CEE77 /* LandingViewController.swift in Sources */,
-				5CD0D88F1D088366005CEE77 /* SpotTableViewCell.swift in Sources */,
+				5CD0D8931D0980BB005CEE77 /* LoggedInViewController.swift in Sources */,
+				5CD0D88F1D088366005CEE77 /* PlaceTableView.swift in Sources */,
 				5CD0D8C21D09C621005CEE77 /* Place.swift in Sources */,
+				5CD0D9231D101757005CEE77 /* EmailValidatedTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
