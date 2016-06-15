@@ -9,12 +9,11 @@
 import UIKit
 import MapKit
 
-class LandingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, MKMapViewDelegate {
+class LoggedInViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
-    
-    var placeList:[Place] = []
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -24,17 +23,40 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         self.tableView.registerClass(PlaceTableViewCell.self, forCellReuseIdentifier: "PlaceTableViewCell")
-        self.placeList = Place.placeList()
         super.viewDidLoad()
+        PlaceController.sharedInstance.getPlaces()
         setupMapView()
         setupTableView()
+        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        let rightBarButton = UIBarButtonItem(title: "+", style: .Plain, target: self, action: "buttonTapped:")
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        let leftBarButton = UIBarButtonItem(title: "logout", style: .Plain, target: self, action: "logoutButtonTapped:")
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        self.navigationController?.navigationBarHidden = false
+        tableView.reloadData()
+        setupMapView()
+        
+        
+    }
+    
+    func buttonTapped(sender: UIBarButtonItem!) {
+        let nvc = NewPlaceViewController()
+        self.presentViewController(nvc, animated: true, completion: nil)
+    }
+    
+    func logoutButtonTapped(sender: UIBarButtonItem!) {
+        let lvc = LandingViewController()
+        self.presentViewController(lvc, animated: true, completion: nil)
     }
     
     func setupMapView() {
         mapView.mapType = .Hybrid
         mapView.showsBuildings = true
-        mapView.addAnnotations(self.placeList)
+        mapView.addAnnotations(PlaceController.sharedInstance.placeList)
         self.mapView.delegate = self
     }
     
@@ -45,20 +67,22 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.placeList.count
+        return PlaceController.sharedInstance.placeList.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let spot = placeList[indexPath.row]
+        let spot = PlaceController.sharedInstance.placeList[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("PlaceTableViewCell", forIndexPath: indexPath) as! PlaceTableViewCell
         cell.placeNameLabel.text = spot.title!
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
         dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        let dateString = dateFormatter.stringFromDate(spot.date!)
+        let dateString:String
+        dateString = dateFormatter.stringFromDate(spot.date)
         cell.dateLabel.text = String(dateString)
+        cell.dateLabel.text = dateString
         if spot.imageURL != nil {
-            cell.logoImageView.imageFromUrl(placeList[indexPath.row].imageURL!)
+            cell.logoImageView.imageFromUrl(PlaceController.sharedInstance.placeList[indexPath.row].imageURL!)
         }
         return cell
         
@@ -98,14 +122,13 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
         
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let spot = placeList[indexPath.row]
+        let spot = PlaceController.sharedInstance.placeList[indexPath.row]
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let mapCenterAfterMove = CLLocationCoordinate2D(latitude: self.placeList[indexPath.row].coordinate.latitude, longitude: self.placeList[indexPath.row].coordinate.longitude)
+        let mapCenterAfterMove = CLLocationCoordinate2D(latitude: spot.coordinate.latitude, longitude: spot.coordinate.longitude)
         mapView.selectAnnotation(spot as! MKAnnotation, animated: true)
         let span = MKCoordinateSpanMake(0.01, 0.01)
         let region = MKCoordinateRegion(center: mapCenterAfterMove, span: span)
         mapView.setRegion(region, animated: true)
-        print(placeList[indexPath.row].favorite)
         
     }
     
@@ -117,17 +140,19 @@ class LandingViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let deleteAction = UITableViewRowAction(style: .Normal, title: "Delete") { action, index in
-            self.mapView.removeAnnotation(self.placeList[indexPath.row] as! MKAnnotation)
-            self.placeList.removeAtIndex(indexPath.row)
+            var spot = PlaceController.sharedInstance.placeList[indexPath.row]
+            self.mapView.removeAnnotation(spot as! MKAnnotation)
+            PlaceController.sharedInstance.placeList.removeAtIndex(indexPath.row)
+            PersistenceManager.saveObject(PlaceController.sharedInstance.placeList, fileName: "/iXplore.placeList")
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
             //self.setupMapView()
         }
         deleteAction.backgroundColor = UIColor.redColor()
         
         let favoriteAction = UITableViewRowAction(style: .Normal, title: "Favorite") { action, index in
-            self.mapView.removeAnnotation(self.placeList[indexPath.row])
-            self.mapView.addAnnotation(self.placeList[indexPath.row])
-            self.placeList[indexPath.row].favorite = true
+            self.mapView.removeAnnotation(PlaceController.sharedInstance.placeList[indexPath.row])
+            self.mapView.addAnnotation(PlaceController.sharedInstance.placeList[indexPath.row])
+            PlaceController.sharedInstance.placeList[indexPath.row].favorite = true
         }
         favoriteAction.backgroundColor = UIColor.orangeColor()
         

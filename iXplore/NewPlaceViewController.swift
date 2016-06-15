@@ -50,7 +50,7 @@ class NewPlaceViewController: UIViewController {
         
         
 //        givenCoordinates = CLLocationCoordinate2D(coordinateField.text!)
-        PlaceController.sharedInstance.addPlace(givenLatitude, lon: givenLongitude, title: givenTitle, imageURL: nil, description_: givenDescription, date: nil, favorite: false)
+        PlaceController.sharedInstance.addPlace(givenLatitude, lon: givenLongitude, title: givenTitle, imageURL: nil, description_: givenDescription, date: NSDate(), favorite: false)
         
     }
     

@@ -17,10 +17,10 @@ class Place: NSObject, NSCoding, MKAnnotation  {
     var title: String? = ""
     var imageURL:String?
     var description_: String? = ""
-    var date: NSDate?
+    var date: NSDate
     var favorite: Bool = false
     
-    required init(newLat:Double?, newLon:Double?, newTitle:String?, newImageURL:String?, newDescription:String?, newDate:NSDate?, newFavorite:Bool) {
+    required init(newLat:Double?, newLon:Double?, newTitle:String?, newImageURL:String?, newDescription:String?, newDate:NSDate, newFavorite:Bool) {
         self.latitude = newLat
         self.longitude = newLon
         self.coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
@@ -43,7 +43,7 @@ class Place: NSObject, NSCoding, MKAnnotation  {
         let longitude = aDecoder.decodeObjectForKey("longitude") as? Double
         let title = aDecoder.decodeObjectForKey("title") as? String
         let description_ = aDecoder.decodeObjectForKey("description_")as? String
-        self.init(newLat: latitude, newLon: longitude, newTitle: title,newImageURL: nil,newDescription: description_,newDate: nil,newFavorite: false)
+        self.init(newLat: latitude, newLon: longitude, newTitle: title,newImageURL: nil,newDescription: description_,newDate: NSDate(),newFavorite: false)
     }
     
     
@@ -105,11 +105,7 @@ class Place: NSObject, NSCoding, MKAnnotation  {
         
         return [place1,place2,place3]
     }
-    
-    func formatDate(date:NSDate) {
-        let date = NSDateComponents().date
-        print(date)
-    }
+
 }
 
 extension UIImageView   {

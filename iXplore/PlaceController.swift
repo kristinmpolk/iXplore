@@ -27,7 +27,7 @@ class PlaceController {
     
     var placeList: [Place] = []
     
-    func addPlace(lat: Double?, lon:Double?, title:String?, imageURL:String?, description_:String?, date:NSDate?, favorite:Bool) {
+    func addPlace(lat: Double?, lon:Double?, title:String?, imageURL:String?, description_:String?, date:NSDate, favorite:Bool) {
         var dateDefault = NSDate()
         let place = Place(newLat: lat,newLon: lon, newTitle: title, newImageURL: nil, newDescription: description_, newDate: dateDefault, newFavorite: false)
         placeList.append(place)
@@ -36,8 +36,12 @@ class PlaceController {
     
     private func readPlacesFromMemory() {
         var currentPlaces = PersistenceManager.loadObject("/iXplore.placeList") as? [Place]
-        for place in currentPlaces! {
-            self.placeList.append(place)
+        if let _ = currentPlaces {
+            for place in currentPlaces! {
+                self.placeList.append(place)
+            }
+        } else {
+            self.placeList = []
         }
         
     }
@@ -47,7 +51,7 @@ class PlaceController {
         if placeList.isEmpty {
             self.readPlacesFromMemory()
             if placeList.isEmpty {
-                return result
+                self.placeList = result
             }
             return self.placeList
         }

@@ -8,18 +8,31 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
     var navigationController = UINavigationController()
+    var locationManager: CLLocationManager?
+    var loginStatus:String?
+    var allowed: Bool = false
+    var currentLocation: CLLocation?
+    var userLocations: [CLLocation] = []
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        locationManager = CLLocationManager()
+        locationManager?.delegate = self
+        locationManager?.requestWhenInUseAuthorization()
+        loginStatus = ""
+        currentLocation = CLLocation()
+    
         let lvc = LoggedInViewController(nibName: "LoggedInViewController", bundle: nil)
+        //let lvc = LandingViewController(nibName: "LandingInViewController", bundle: nil)
         self.navigationController = UINavigationController(rootViewController: lvc)
         self.navigationController.navigationBarHidden = false
  
@@ -28,6 +41,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
         self.window?.makeKeyAndVisible()
         self.window?.rootViewController = self.navigationController
         return true
+    }
+    
+//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//        <#code#>
+//    }
+    
+    func locationManager(manager:CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) { //delegate function
+        switch status {
+        case CLAuthorizationStatus.Restricted:
+            loginStatus = "Authorization status restricted"
+        case CLAuthorizationStatus.NotDetermined:
+            loginStatus = "status not determined"
+        case CLAuthorizationStatus.Denied:
+            loginStatus = "Access denied"
+        default:
+            loginStatus = "Authorized"
+            self.allowed = true
+            
+        }
+        
+//        if allowed {
+//            self.locationManager?.startUpdatingLocation()
+//            self.locationManager(locationManager!, didUpdateLocations: userLocations)
+//        }
     }
 
     func applicationWillResignActive(application: UIApplication) {
