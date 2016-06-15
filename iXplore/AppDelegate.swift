@@ -43,9 +43,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
         return true
     }
     
-//    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        <#code#>
-//    }
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        currentLocation = self.locationManager?.location
+    }
     
     func locationManager(manager:CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) { //delegate function
         switch status {
@@ -58,13 +58,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
         default:
             loginStatus = "Authorized"
             self.allowed = true
+            locationManager!.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             
         }
-        
-//        if allowed {
-//            self.locationManager?.startUpdatingLocation()
-//            self.locationManager(locationManager!, didUpdateLocations: userLocations)
-//        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

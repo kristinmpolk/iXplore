@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 
 class LoggedInViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, MKMapViewDelegate {
+    
+    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var tableView: UITableView!
@@ -32,7 +34,7 @@ class LoggedInViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func viewWillAppear(animated: Bool) {
-        let rightBarButton = UIBarButtonItem(title: "+", style: .Plain, target: self, action: "buttonTapped:")
+        let rightBarButton = UIBarButtonItem(title: "+", style: .Plain, target: self, action: "plusButtonTapped:")
         self.navigationItem.rightBarButtonItem = rightBarButton
         let leftBarButton = UIBarButtonItem(title: "logout", style: .Plain, target: self, action: "logoutButtonTapped:")
         self.navigationItem.leftBarButtonItem = leftBarButton
@@ -43,9 +45,10 @@ class LoggedInViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     
-    func buttonTapped(sender: UIBarButtonItem!) {
+    func plusButtonTapped(sender: UIBarButtonItem!) {
         let nvc = NewPlaceViewController()
         self.presentViewController(nvc, animated: true, completion: nil)
+        appDelegate.locationManager!.startUpdatingLocation()
     }
     
     func logoutButtonTapped(sender: UIBarButtonItem!) {
@@ -122,6 +125,7 @@ class LoggedInViewController: UIViewController, UITableViewDataSource, UITableVi
         
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        appDelegate.locationManager?.startUpdatingLocation()
         let spot = PlaceController.sharedInstance.placeList[indexPath.row]
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let mapCenterAfterMove = CLLocationCoordinate2D(latitude: spot.coordinate.latitude, longitude: spot.coordinate.longitude)

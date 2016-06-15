@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 
 class NewPlaceViewController: UIViewController {
+    
+    let appDelegate: AppDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionField: UITextField!
@@ -24,7 +26,10 @@ class NewPlaceViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let lat = appDelegate.currentLocation!.coordinate.latitude
+        let lon = appDelegate.currentLocation!.coordinate.longitude
+        self.latitudeField.text = String(lat)
+        self.longitudeField.text = String(lon)
         let button = UIButton(frame: CGRectMake(10, 30, 70, 20))
         button.setTitle("Back", forState: UIControlState.Normal)
         button.setTitleColor(UIColor.blueColor(), forState: UIControlState.Normal)

@@ -19,46 +19,57 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3K-Yw-mbX">
-                    <rect key="frame" x="201" y="217" width="200" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w3K-Yw-mbX">
+                    <rect key="frame" x="200" y="217" width="200" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="85W-BQ-Udz"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HP7-qt-tom">
-                    <rect key="frame" x="201" y="285" width="200" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HP7-qt-tom">
+                    <rect key="frame" x="200" y="268" width="200" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="NaD-Kh-wiP"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keF-Um-pIg">
-                    <rect key="frame" x="284" y="424" width="34" height="30"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="keF-Um-pIg">
+                    <rect key="frame" x="283" y="424" width="34" height="30"/>
                     <state key="normal" title="Save"/>
                     <connections>
                         <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="YSF-vo-O8c"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mzg-yH-OjU">
-                    <rect key="frame" x="201" y="359" width="97" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mzg-yH-OjU">
+                    <rect key="frame" x="200" y="320" width="200" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="ntr-aT-DKL"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xHy-vR-vUV">
-                    <rect key="frame" x="304" y="359" width="97" height="30"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xHy-vR-vUV">
+                    <rect key="frame" x="200" y="374" width="200" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="MNv-UH-mvf"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
             <color key="backgroundColor" red="0.50196081400000003" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="Mzg-yH-OjU" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="0iD-hx-Jj1"/>
                 <constraint firstItem="HP7-qt-tom" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="30s-1T-lyg"/>
+                <constraint firstItem="xHy-vR-vUV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LpN-Ps-3uS"/>
                 <constraint firstItem="keF-Um-pIg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Qn1-qT-eOv"/>
-                <constraint firstItem="HP7-qt-tom" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="YNe-h7-qTi"/>
-                <constraint firstItem="HP7-qt-tom" firstAttribute="top" secondItem="w3K-Yw-mbX" secondAttribute="bottom" constant="38" id="pGY-s0-5zt"/>
+                <constraint firstItem="Mzg-yH-OjU" firstAttribute="top" secondItem="HP7-qt-tom" secondAttribute="bottom" constant="22" id="TEf-kG-53a"/>
+                <constraint firstItem="HP7-qt-tom" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-17" id="YNe-h7-qTi"/>
+                <constraint firstItem="xHy-vR-vUV" firstAttribute="top" secondItem="Mzg-yH-OjU" secondAttribute="bottom" constant="24" id="ehf-mZ-fHk"/>
+                <constraint firstItem="keF-Um-pIg" firstAttribute="top" secondItem="xHy-vR-vUV" secondAttribute="bottom" constant="20" id="g7h-hS-NHK"/>
+                <constraint firstItem="HP7-qt-tom" firstAttribute="top" secondItem="w3K-Yw-mbX" secondAttribute="bottom" constant="21" id="pGY-s0-5zt"/>
                 <constraint firstItem="w3K-Yw-mbX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="raI-Mx-ZNi"/>
             </constraints>
         </view>
